@@ -1,5 +1,3 @@
-sql Lab exam 2
-
 create table Students(
 roll int primary key,
 s_name varchar(100),
@@ -55,3 +53,4 @@ join Faculties F
 on s.advisor_id=f.f_id
 where st.s_name like '%Khan' and f_name like '%Khan' 
 group by department;
+
