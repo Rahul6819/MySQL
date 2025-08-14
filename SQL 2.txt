@@ -1,0 +1,57 @@
+sql Lab exam 2
+
+create table Students(
+roll int primary key,
+s_name varchar(100),
+department varchar(100),
+mentor_id varchar(100),
+advisor_id varchar(100)
+);
+
+Insert into Students Values(10001,'Waqar Khan','CSE','','F330');
+Insert into Students Values(10002,'Rama Roy','CSE','10001','F330');
+Insert into Students Values(10003,'Raja Sen','CSE','10001','F331');
+Insert into Students Values(10004,'Ranga Rao','EE','10002','F331');
+Insert into Students Values(10005,'Prasad R','EE','10002','');
+
+
+
+
+
+
+Create table Faculties(
+f_id varchar(100),
+f_name varchar(100),
+department varchar(100),
+Salary int);
+
+Insert into Faculties Values('F330','Shirshendu Das','CSE',6000);
+Insert into Faculties Values('F331','Ajay Khan','CSE',4000);
+Insert into Faculties Values('F334','MVP','CSE',44000);
+Insert into Faculties Values('F338','Ashish','CSE',7000);
+
+
+
+
+Select S.roll,S.s_name,st.s_name as mentor_name
+from Students S
+LEFT Join Students st
+on st.roll=S.mentor_id;
+
+
+
+Select S.roll,S.s_name,st.s_name,f.f_name
+from Students S
+LEFT Join Students st
+on st.roll=S.mentor_id
+left join Faculties f
+on s.advisor_id=f.f_id;
+
+
+
+Select s.department,count(s.s_name) from Students s
+join Students st on st.roll=S.mentor_id
+join Faculties F
+on s.advisor_id=f.f_id
+where st.s_name like '%Khan' and f_name like '%Khan' 
+group by department;
