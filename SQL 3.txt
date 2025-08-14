@@ -1,5 +1,3 @@
-SQL Lab 3 ES23BTECH11015
-
 CREATE TABLE Students (
     roll INT PRIMARY KEY,
     s_name VARCHAR(25) NOT NULL,
@@ -51,4 +49,5 @@ FROM Faculties Fa
 JOIN Mentorship M ON Fa.ID = M.faculty_id
 JOIN Students St ON St.roll = M.roll
 WHERE St.department != 'CSE';
+
 
